@@ -1,43 +1,19 @@
 {
   "name": "gettic.js",
-  "version": "1.0.0",
-  "description": "Gettic Resmi Node.js Kütüphanesi - Bot, Webhook ve API istemcisi",
-  "main": "index.js",
-  "files": [
-    "index.js",
-    "src/",
-    "README.md",
-    "LICENSE"
-  ],
+  "version": "2.0.0",
+  "description": "Gettic Resmi Kütüphanesi - Bot, Webhook, REST API",
+  "main": "src/index.js",
+  "files": ["src/", "README.md", "LICENSE"],
   "scripts": {
-    "test": "node test.js"
+    "test": "node tests/test.js",
+    "start": "node examples/example.js"
   },
-  "keywords": [
-    "gettic",
-    "bot",
-    "webhook",
-    "chat",
-    "alternative",
-    "sohbet",
-    "api",
-    "socket",
-    "realtime"
-  ],
-  "author": "darking053official",
+  "keywords": ["gettic", "bot", "webhook", "chat", "api"],
+  "author": "darking053",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/darking053official/gettic.js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/darking053official/gettic.js/issues"
-  },
-  "homepage": "https://github.com/darking053official/gettic.js#readme",
   "dependencies": {
     "socket.io-client": "^4.7.2",
     "axios": "^1.6.0"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  }
+  "engines": { "node": ">=16.0.0" }
 }
