@@ -1,12 +1,17 @@
 const { Client } = require('./system');
-const { WebhookClient } = require('./network');
-const { RESTClient } = require('./network');
-const { sleep, formatTime, randomString } = require('./utils');
+const { VoiceClient } = require('./voice');
+const { WebhookClient } = require('./webhook');
+const { RESTClient } = require('./rest');
+const { version, colors, badges } = require('./types');
+const { sleep, formatTime, randomString, escapeHtml } = require('./utils');
 
 module.exports = {
     Client,
+    VoiceClient,
     WebhookClient,
     RESTClient,
-    version: '2.0.0',
-    utils: { sleep, formatTime, randomString }
+    version,
+    colors,
+    badges,
+    utils: { sleep, formatTime, randomString, escapeHtml }
 };
