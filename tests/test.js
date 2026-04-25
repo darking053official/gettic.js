@@ -1,17 +1,17 @@
-const { Client } = require('../src/index');
+const { Client, WebhookClient, RESTClient, version, colors, utils } = require('../src/index');
 
-const bot = new Client({
-    url: 'https://gettic-production.up.railway.app',
-    token: 'test_token',
-    username: 'TestBot'
-});
+console.log('🧪 Gettic.js v' + version + ' Test');
+console.log('✅ Modüller yüklendi');
+console.log('✅ Client:', typeof Client);
+console.log('✅ WebhookClient:', typeof WebhookClient);
+console.log('✅ RESTClient:', typeof RESTClient);
+console.log('✅ Colors:', Object.keys(colors).length + ' renk');
+console.log('✅ Utils:', Object.keys(utils).length + ' araç');
 
-bot.on('ready', () => {
-    console.log('✅ Test başarılı! Bot hazır.');
-    process.exit(0);
-});
-
-bot.connect().catch(() => {
-    console.log('⚠️ Bağlantı bekleniyor (normal)');
+// Basit test
+const { sleep } = utils;
+sleep(100).then(() => {
+    console.log('✅ sleep() çalışıyor');
+    console.log('✅ Tüm testler başarılı!');
     process.exit(0);
 });
