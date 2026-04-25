@@ -8,21 +8,21 @@ class WebhookClient {
     }
 
     async send(content) {
-        try {
-            const res = await axios.post(this.url, { content, username: this.username });
-            return res.data;
-        } catch (e) {
-            throw new Error('Webhook gönderimi başarısız: ' + e.message);
-        }
+        const res = await axios.post(this.url, {
+            content: String(content),
+            username: this.username
+        });
+        return res.data;
     }
 
-    async sendEmbed({ title, description, fields, footer }) {
-        let content = '';
-        if (title) content += `**${title}**\n`;
-        if (description) content += `${description}\n`;
-        if (fields) fields.forEach(f => { content += `\n**${f.name}**: ${f.value}`; });
-        if (footer) content += `\n_${footer}_`;
-        return this.send(content);
+    async sendEmbed({ title, description, fields, footer, image }) {
+        let msg = '';
+        if (title) msg += `**${title}**\n`;
+        if (description) msg += `${description}\n`;
+        if (fields) fields.forEach(f => msg += `\n**${f.name}**: ${f.value}`);
+        if (image) msg += `\n${image}`;
+        if (footer) msg += `\n_${footer}_`;
+        return this.send(msg);
     }
 
     setName(name) { this.username = name; return this; }
