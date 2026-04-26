@@ -1,6 +1,6 @@
 {
   "name": "gettic.js",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Gettic Resmi Kütüphanesi - Bot, Webhook, REST API",
   "main": "src/index.js",
   "files": ["src/", "README.md", "LICENSE"],
