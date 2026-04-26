@@ -4,7 +4,7 @@
 
 <h1 align="center">gettic.js</h1>
 
-<p align="center">Gettic Resmi Node.js Kütüphanesi v2.0</p>
+<p align="center">Gettic Resmi Node.js Kütüphanesi </p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/gettic.js"><img src="https://img.shields.io/npm/v/gettic.js.svg"></a>
