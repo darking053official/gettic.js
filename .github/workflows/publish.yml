@@ -1,4 +1,4 @@
-name: Publish to npm with Auto Version Bump
+name: 🚀 Otomatik Sürüm ve NPM Yayını
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  auto-version-and-publish:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -55,7 +55,36 @@ jobs:
           git add package.json
           git commit -m "ci: versiyon ${{ steps.bump.outputs.new }} olarak güncellendi [skip ci]" || echo "Versiyon değişmedi"
 
-      - name: 🚀 NPM'e Publish Et
+      - name: 🏷️ Git Tag Oluştur
+        run: |
+          git tag -a "v${{ steps.bump.outputs.new }}" -m "Sürüm v${{ steps.bump.outputs.new }}"
+          git push origin "v${{ steps.bump.outputs.new }}"
+
+      - name: 📦 GitHub Release Oluştur
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ steps.bump.outputs.new }}"
+          name: "🚀 Sürüm v${{ steps.bump.outputs.new }}"
+          body: |
+            ## 🚀 Gettic.js v${{ steps.bump.outputs.new }}
+
+            ### ✨ Yenilikler
+            - Otomatik sürüm güncellemesi
+            - Performans iyileştirmeleri
+            
+            ### 📦 Kurulum
+            ```bash
+            npm install gettic.js@${{ steps.bump.outputs.new }}
+            ```
+            
+            ### 🔗 Bağlantılar
+            - [NPM](https://www.npmjs.com/package/gettic.js)
+            - [GitHub](https://github.com/darking053official/gettic.js)
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+
+      - name: 🚀 NPM'e Yayınla
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
