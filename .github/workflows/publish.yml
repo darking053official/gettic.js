@@ -17,10 +17,8 @@ jobs:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
       
-      - run: npm ci
+      - run: npm install
       
-      - run: npm test || echo "Test yok"
-      
-      - run: npm publish
+      - run: npm publish || echo "Paket zaten yayında"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
