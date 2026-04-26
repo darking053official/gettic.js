@@ -1,19 +1,31 @@
 {
   "name": "gettic.js",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Gettic Resmi Kütüphanesi - Bot, Webhook, REST API",
   "main": "src/index.js",
-  "files": ["src/", "README.md", "LICENSE"],
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "node tests/test.js",
     "start": "node examples/example.js"
   },
-  "keywords": ["gettic", "bot", "webhook", "chat", "api"],
+  "keywords": [
+    "gettic",
+    "bot",
+    "webhook",
+    "chat",
+    "api"
+  ],
   "author": "darking053",
   "license": "MIT",
   "dependencies": {
     "socket.io-client": "^4.7.2",
     "axios": "^1.6.0"
   },
-  "engines": { "node": ">=16.0.0" }
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }
